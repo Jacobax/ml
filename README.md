@@ -25,4 +25,8 @@ RestartPreventExitStatus=23
 WantedBy=multi-user.target
 ```
 
+重载systemctl服务
+```
+systemctl daemon-reload
+```
 _服务名和执行文件名通常为v2ray以便辨识，有些机器安装v2ray会被封号，改名简单规避一下，作用随缘_
