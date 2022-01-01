@@ -1,57 +1,29 @@
 {
-
   "inbounds": [{
-
     "port": 2248,
-
     "protocol": "vmess",
-
     "settings": {
-
       "clients": [
-
         {
-
           "id": "4d159fd5-07aa-48b3-ab72-b0f56c820c2f",
-
           "level": 1,
-
           "alterId": 56
-
         }
-
       ]
-
     },
-
     "streamSettings": {
-
         "network": "ws",
-
         "wsSettings": {
-
             "path": "/TS/recharge/tzUrl.html"
-
         }
-
     }
-
   }],
-
   "outbounds": [{
-
     "protocol": "freedom",
-
     "settings": {}
-
   },{
-
     "protocol": "blackhole",
-
     "settings": {},
-
     "tag": "blocked"
-
   }]
-
 }
