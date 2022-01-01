@@ -30,7 +30,7 @@ cd v2ray-core && go mod download
 ```
 CGO_ENABLED=0 GOOS=linux GOARCH=s390x go build -o $HOME/生成文件名 -trimpath -ldflags "-s -w -buildid=" ./main
 ```
-_生成文件名通常为v2ray，可自行命名，所生成文件在当前文件夹或root目录下_
+_生成文件名通常为v2ray，可自行命名，所生成文件在当前文件夹或root目录下_  
 
 移动至Linux运行目录
 ```
@@ -43,7 +43,7 @@ mkdir /etc/配置文件夹名
 ```
 vi /etc/配置文件夹名/config.json
 ```
-_配置文件夹名通常为v2ray以便辨识，可自行命名以规避_
+_配置文件夹名通常为v2ray以便辨识，可自行命名以规避_  
 填入改好后的配置模板并保存  
 运行
 ```
@@ -57,6 +57,6 @@ systemctl enable 执行文件名
 ```
 systemctl status 执行文件名
 ```
-_即前面编译生成的文件_
+_即前面编译生成的文件_  
 **注意执行文件路径及配置文件路径与所添加服务内容必须一致**
 **以上所有待定文件名及文件夹名通常为v2ray，可自行命名**
