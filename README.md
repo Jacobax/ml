@@ -2,7 +2,7 @@
 免流模板  
 vmess+ws  
 使用请自行修改port、id和path，其中path为广东电信免流路径  
-
+---
 **后台服务运行**
 ```
 vi /etc/systemd/system/服务名称.service
@@ -25,4 +25,4 @@ RestartPreventExitStatus=23
 WantedBy=multi-user.target
 ```
 
-_服务名和执行文件名通常为v2ray以便辨识，有些机器安装v2ray会被封号，改名简单规避一下_
+_服务名和执行文件名通常为v2ray以便辨识，有些机器安装v2ray会被封号，改名简单规避一下，作用随缘_
