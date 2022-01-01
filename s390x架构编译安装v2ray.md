@@ -18,14 +18,32 @@ source ~/.profile
 ```
 go version
 ```
-*拉取源码*
+*编译v2ray*
+拉取源码
 ```
 git clone https://github.com/v2fly/v2ray-core.git
 ```
 ```
 cd v2ray-core && go mod download
 ```
+编译
 ```
 CGO_ENABLED=0 GOOS=linux GOARCH=s390x go build -o $HOME/生成文件名 -trimpath -ldflags "-s -w -buildid=" ./main
 ```
 _生成文件名通常为v2ray，可自行命名，所生成文件在当前文件夹或root目录下_
+
+移动至Linux运行目录
+```
+mv 所生成文件名 /usr/bin/
+```
+*v2ray配置*
+```
+mkdir /etc/配置文件夹名
+```
+```
+vi /etc/配置文件夹名/config.json
+```
+_配置文件夹名通常为v2ray以便辨识，可自行命名以规避_
+填入改好后的配置模板并保存
+**注意执行文件路径及配置文件路径与所添加服务内容必须一致**
+**以上所有待定文件名及文件夹名通常为v2ray，可自行命名**
