@@ -29,7 +29,7 @@
             "id": "填入tcp UUID",
             "alterId": 0
           }
-        ],
+        ]
       },
       "streamSettings": {
         "network": "tcp",
