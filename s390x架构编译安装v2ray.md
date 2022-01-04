@@ -43,10 +43,9 @@ mkdir /etc/配置文件夹名
 ```
 vi /etc/配置文件夹名/config.json
 ```
-*配置文件夹名通常为v2ray以便辨识  
 填入改好后的配置模板并保存  
 ---
-**后台服务运行**
+**后台服务运行**  
 ```
 vi /etc/systemd/system/服务名称.service
 ```
