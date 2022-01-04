@@ -1,45 +1,6 @@
 {
-  "log": null,
-  "routing": {
-    "rules": [
-      {
-        "inboundTag": [
-          "api"
-        ],
-        "outboundTag": "api",
-        "type": "field"
-      },
-      {
-        "ip": [
-          "geoip:private"
-        ],
-        "outboundTag": "blocked",
-        "type": "field"
-      },
-      {
-        "outboundTag": "blocked",
-        "protocol": [
-          "bittorrent"
-        ],
-        "type": "field"
-      }
-    ]
-  },
-  "dns": null,
   "inbounds": [
     {
-      "listen": "127.0.0.1",
-      "port": 本地端口,
-      "protocol": "dokodemo-door",
-      "settings": {
-        "address": "127.0.0.1"
-      },
-      "streamSettings": null,
-      "tag": "api",
-      "sniffing": null
-    },
-    {
-      "listen": null,
       "port": ws端口,
       "protocol": "vmess",
       "settings": {
@@ -48,8 +9,7 @@
             "id": "填入ws UUID",
             "alterId": 0
           }
-        ],
-        "disableInsecureEncryption": false
+        ]
       },
       "streamSettings": {
         "network": "ws",
@@ -58,18 +18,9 @@
           "path": "/TS/recharge/tzUrl.html",
           "headers": {}
         }
-      },
-      "tag": "inbound-ws端口",
-      "sniffing": {
-        "enabled": true,
-        "destOverride": [
-          "http",
-          "tls"
-        ]
       }
     },
     {
-      "listen": null,
       "port": tcp端口,
       "protocol": "vmess",
       "settings": {
@@ -79,7 +30,6 @@
             "alterId": 0
           }
         ],
-        "disableInsecureEncryption": false
       },
       "streamSettings": {
         "network": "tcp",
@@ -102,14 +52,6 @@
             }
           }
         }
-      },
-      "tag": "inbound-tcp端口",
-      "sniffing": {
-        "enabled": true,
-        "destOverride": [
-          "http",
-          "tls"
-        ]
       }
     }
   ],
@@ -123,22 +65,5 @@
       "settings": {},
       "tag": "blocked"
     }
-  ],
-  "transport": null,
-  "policy": {
-    "system": {
-      "statsInboundDownlink": true,
-      "statsInboundUplink": true
-    }
-  },
-  "api": {
-    "services": [
-      "HandlerService",
-      "LoggerService",
-      "StatsService"
-    ],
-    "tag": "api"
-  },
-  "stats": {},
-  "reverse": null,
-  "fakeDns": null
+  ]
+}
