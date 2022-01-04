@@ -45,6 +45,33 @@ vi /etc/配置文件夹名/config.json
 ```
 _配置文件夹名通常为v2ray以便辨识，可自行命名以规避_  
 填入改好后的配置模板并保存  
+---
+**后台服务运行**
+```
+vi /etc/systemd/system/服务名称.service
+```
+填入并保存
+```
+[Unit]
+Description=服务名称 Service
+After=network.target nss-lookup.target
+
+[Service]
+User=nobody
+CapabilityBoundingSet=CAP_NET_ADMIN CAP_NET_BIND_SERVICE
+AmbientCapabilities=CAP_NET_ADMIN CAP_NET_BIND_SERVICE
+NoNewPrivileges=true
+ExecStart=/usr/bin/执行文件名 run -config /etc/执行文件名/config.json
+Restart=on-failure
+RestartPreventExitStatus=23
+
+[Install]
+WantedBy=multi-user.target
+```
+重载systemctl服务
+```
+systemctl daemon-reload
+```
 运行
 ```
 systemctl start 执行文件名
