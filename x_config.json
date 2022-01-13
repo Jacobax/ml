@@ -1,0 +1,99 @@
+{
+    "log": {
+        "loglevel": "none"
+    },
+    "inbounds": [
+        {
+          "port": 15611,
+          "protocol": "vmess",
+          "settings": {
+            "clients": [
+              {
+                "id": "4b898fc2-b319-4ee5-905e-ad86dda6cf06",
+                "alterId": 0
+              }
+            ]
+          },
+          "streamSettings": {
+            "network": "tcp",
+            "security": "none",
+            "tcpSettings": {
+              "header": {
+                "type": "http",
+                "request": {
+                  "method": "GET",
+                  "path": [
+                    "/"
+                  ],
+                  "headers": {}
+                },
+                "response": {
+                  "version": "1.1",
+                  "status": "200",
+                  "reason": "OK",
+                  "headers": {}
+                }
+              }
+            }
+          }
+        },
+        {
+            "port": 443,
+            "protocol": "vless",
+            "settings": {
+                "decryption": "none",
+                "fallbacks": [
+                    {
+                        "alpn": "h2",
+                        "dest": "/dev/shm/nginx/h2.sock"
+                    },
+                    {
+                        "dest": "/dev/shm/nginx/default.sock"
+                    }
+                ]
+            },
+            "streamSettings": {
+                "network": "tcp",
+                "security": "xtls",
+                "xtlsSettings": {
+                    "alpn": [
+                        "h2",
+                        "http/1.1"
+                    ],
+                    "minVersion": "1.2",
+                    "cipherSuites": "TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256:TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384:TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256",
+                    "certificates": [
+                        {
+                            "certificateFile": "/usr/local/nginx/certs/eks.qmqm.ml.cer",
+                            "keyFile": "/usr/local/nginx/certs/eks.qmqm.ml.key",
+                            "ocspStapling": 3600
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "listen": "/dev/shm/xray/grpc.sock",
+            "protocol": "vless",
+            "settings": {
+                "clients": [
+                    {
+                        "id": "2ad063d3-9e20-4700-b316-cb37c2c148b6"
+                    }
+                ],
+                "decryption": "none"
+            },
+            "streamSettings": {
+                "network": "grpc",
+                "grpcSettings": {
+                    "serviceName": "402b95f"
+                }
+            }
+        }
+    ],
+    "outbounds": [
+        {
+            "protocol": "freedom"
+        }
+    ]
+}
