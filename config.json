@@ -1,8 +1,9 @@
-{
+
 "server":["::0","0.0.0.0"],
 "nameserver":"1.1.1.1",
-"server_port":,
-"method":"chacha20-ietf-poly1305",
-"password":"",
-"mode":"tcp_and_udp", "fast_open":false
+"server_port":范围1000-65535,
+"encryption_method":"chacha20-ietf-poly1305",
+"password":"不小于20位的随机口令",
+"mode":"tcp_and_udp",
+"fast_open":false
 }
